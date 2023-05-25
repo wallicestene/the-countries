@@ -2,6 +2,7 @@ import { ArrowBack, KeyboardBackspace, Language } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from "react-router-dom";
 import"./Country.css"
+import { AnimatePresence, motion } from "framer-motion";
 
 const Country = () => {
 
@@ -38,7 +39,27 @@ const Country = () => {
       {country.map((countryInfo, index) => (
         <div className="country-info" key={index}>
         <div className="country-info-left">
-            <img src={countryInfo.flags.svg} alt={countryInfo.flags.alt} />
+        <motion.img
+              initial={{
+                opacity: 0,
+                translateX: -500,
+              }}
+              animate={{
+                opacity: 1,
+                translateX: 0,
+              }}
+              transition={{
+                duration: 0.5,
+                translateX: -500,
+              }}
+              exit={{
+                opacity: 0,
+                translateX: -500,
+              }}
+              className="img"
+              src={countryInfo.flags.svg}
+              alt={name}
+            />
        </div>
         <div className='right-content'>
            <div className="country-info-right">
@@ -60,7 +81,24 @@ const Country = () => {
               
               <div className='ttt'>
                 { countryInfo.borders && countryInfo.borders.map((border, index) => (
-                  <p key={index} className='borders'>{border}</p>
+                  <div key={index} className='borders'>
+                     <motion.div
+                        initial={{
+                          opacity: 0,
+                          translateY: -50,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          translateY: 0,
+                        }}
+                        transition={{
+                          duration: 0.2,
+                          delay: index * 0.1,
+                        }}
+                      >
+                       {border}
+                      </motion.div>
+                    </div>
                   ))}
               </div>
              

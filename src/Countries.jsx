@@ -3,7 +3,7 @@ import './Countries.css'; // Import the CSS file
 import {Link} from "react-router-dom"
 import SearchInput from './SearchInput';
 import Filter from './Filter';
-
+import { motion } from "framer-motion";
 const CountryData = () => {
 
   const [countries, setCountries] = useState([]);
@@ -50,8 +50,27 @@ const CountryData = () => {
       
         <div className="country-grid">
         {countries.map((country, index) => (
+
           <div  key={index} className="country-card">
             <Link to={`/country/${country.name.common}`} className="link">
+            <motion.div
+              initial={{
+                opacity: 0,
+                translateX: -500,
+                rotate: 10,
+              }}
+              animate={{
+                opacity: 1,
+                translateX: 0,
+                rotate: 0,
+              }}
+              transition={{
+                delay: index * 0.02,
+              }}
+              whileHover={{
+                translateY: -10,
+              }}
+            >
             <div className="flag">
               <img src={country.flags.svg} alt="" />
             </div>
@@ -61,6 +80,7 @@ const CountryData = () => {
               <p><strong>Region: </strong>{country.region}</p>
               <p><strong>Capital: </strong>{country.capital}</p>
               </div>
+              </motion.div>
               </Link> 
           </div>
            ))}

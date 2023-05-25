@@ -25,6 +25,11 @@
     border-radius: 5px;
     /* transition: background-color 0.4s; */
   }
+  .flag{
+    width: 100%;
+  overflow: hidden;
+  height: 10rem;
+  }
   #light .country-card{
     background-color: var(--Very-Light-Gray);
     color: var(--Very-Dark-Blue);
@@ -44,15 +49,16 @@
   }
   
   .flag img {
-    width:250px ;
-    height: fit-content;
-    object-fit: contain;
-    border-radius: 5px 5px 0 0;
+    border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   }
   
   .country-details {
     margin-top: 10px;
     margin-left: 20px;
+    margin-bottom: 30px;
   }
   .country-card.light-theme{
     background-color: var(--Very-Light-Gray);
