@@ -1,0 +1,68 @@
+.navbar-container{
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    background-color: #2b3743;
+}
+#light .navbar-container{
+    background-color: var(--Very-Light-Gray);
+    color: var(--Very-Dark-Blue);
+}
+#dark .navbar-container{
+    background-color: var(--Dark-Blue);
+    color: var(--Very-Light-Gray);
+    
+}
+.navbar-container.light-theme{
+    background-color: var(--Very-Light-Gray);
+  color: var(--Very-Dark-Blue);
+}
+.mode-details{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 110px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+}
+#dark .mode-details:hover{
+    background-color: var(--Very-Light-Gray);
+    color: var(--Very-Dark-Blue);
+}
+#light .mode-details{
+    background-color: var(--Very-Light-Gray);
+    color: var(--Very-Dark-Blue);
+}
+#light .mode-details:hover{
+    background-color: #2b3743;
+    color: var(--Very-Light-Gray);
+}
+.navbar-container h1{
+    font-size: 30px;
+    font-weight: 800;
+}
+.mode-details h3{
+    font-size: 15px;
+    font-weight: 700;
+}
+.MuiSvgIcon-root{
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .navbar-container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  /* Media query for screens with a maximum width of 480px (e.g., smartphones) */
+  @media (max-width: 480px) {
+    .navbar-container {
+      padding: 5px;
+    }
+  }
