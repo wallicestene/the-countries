@@ -7,14 +7,18 @@ import { motion } from "framer-motion";
 const CountryData = () => {
 
   const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then(response => response.json())
       .then(data => {
         setCountries(data)
+        setLoading(true)
       })
       .catch(error => console.error('Error:', error));
+      setError(error)
   }, []);
 
   const getCountryByName =(name)=>{
@@ -22,8 +26,10 @@ const CountryData = () => {
       .then(response => response.json())
       .then(data => {
         setCountries(data)
+        setLoading(true)
       })
       .catch(error => console.error('Error:', error));
+      setError(error.message)
   }
   const filterByRegion =(region)=>{
 
@@ -32,16 +38,20 @@ const CountryData = () => {
           .then(response => response.json())
           .then(data => {
             setCountries(data)
+            setLoading(true)
           })
           .catch(error => console.error('Error:', error));
+          setError(error.message)
       }else{
         fetch(`https://restcountries.com/v3.1/region/${region}`)
       .then(response => response.json())
       .then(data => {
         setCountries(data)
        console.log(data)
+       setLoading(true)
      })
      .catch(error => console.error('Error:', error));
+     setError(error.message)
  }
       }
     
@@ -95,7 +105,7 @@ const CountryData = () => {
            ))}
            </div> 
       ) : (
-        <p>{countries.length > 0 ? "Loading..." : "Country not Found!"}</p>
+        <p>{loading ? "" : "Loading..."}</p>
       )}
     </div>
   );
