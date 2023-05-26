@@ -80,9 +80,9 @@ const Country = () => {
               <p><strong>Border Countries:</strong></p>
               
               <div className='ttt'>
-                { countryInfo.borders && countryInfo.borders.map((border, index) => (
-                  <div key={index} className='borders'>
-                     <motion.div
+                { countryInfo.borders ? countryInfo.borders.map((border, index) => (
+                    <div key={index} className='borders'>
+                        <motion.div
                         initial={{
                           opacity: 0,
                           translateY: -50,
@@ -96,10 +96,15 @@ const Country = () => {
                           delay: index * 0.1,
                         }}
                       >
+                        
                        {border}
                       </motion.div>
                     </div>
-                  ))}
+                ))
+               : (
+                  <div className='borders'>None</div>
+                )
+              }
               </div>
              
             </div>

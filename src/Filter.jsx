@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Filter.css"
 import { useHistory } from 'react-router-dom'
+
 const Filter = ({regionName}) => {
 
   const history = useHistory()
@@ -13,7 +14,7 @@ const Filter = ({regionName}) => {
   return (
     <div className='filter'>
       <select id="region" onChange={handleOnchange}>
-            <option value="Filter by Region">Filter by Region</option>
+           <option value="Filter by Region">Filter by Region</option>
             <option value="Africa">Africa</option>
             <option value="America">America</option>
             <option value="Asia">Asia</option>

@@ -13,7 +13,6 @@ const CountryData = () => {
       .then(response => response.json())
       .then(data => {
         setCountries(data)
-        console.log(data)
       })
       .catch(error => console.error('Error:', error));
   }, []);
@@ -23,19 +22,29 @@ const CountryData = () => {
       .then(response => response.json())
       .then(data => {
         setCountries(data)
-        console.log(data)
       })
       .catch(error => console.error('Error:', error));
   }
   const filterByRegion =(region)=>{
-    fetch(`https://restcountries.com/v3.1/region/${region}`)
-     .then(response => response.json())
-     .then(data => {
-       setCountries(data)
+
+      if (region === "Filter by Region") {
+        fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            setCountries(data)
+          })
+          .catch(error => console.error('Error:', error));
+      }else{
+        fetch(`https://restcountries.com/v3.1/region/${region}`)
+      .then(response => response.json())
+      .then(data => {
+        setCountries(data)
        console.log(data)
      })
      .catch(error => console.error('Error:', error));
  }
+      }
+    
   return (
     <div className="country-container">
       
@@ -86,7 +95,7 @@ const CountryData = () => {
            ))}
            </div> 
       ) : (
-        <p>Loading...</p>
+        <p>{countries.length > 0 ? "Loading..." : "Country not Found!"}</p>
       )}
     </div>
   );
