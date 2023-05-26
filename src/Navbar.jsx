@@ -3,7 +3,6 @@ import "./Navbar.css"
 import { DarkModeOutlined, LightModeOutlined } from '@mui/icons-material'
 
 const Navbar = ({toggleTheme , theme}) => {
-  const[mode, setMode] =useState(true)
 
   return (
     <nav>
@@ -11,7 +10,7 @@ const Navbar = ({toggleTheme , theme}) => {
         <h1>Where in the world?</h1>
         <div className="mode-details"onClick={toggleTheme}>
             {theme === "dark" ? <DarkModeOutlined /> : <LightModeOutlined />}
-            <h3>{theme === "light" ? "Light Mode" : "Dark Mode"}</h3>
+            <h3>{theme === "light" ? "Dark Mode" : "Light Mode"}</h3>
         </div>
     </div>
     </nav>
