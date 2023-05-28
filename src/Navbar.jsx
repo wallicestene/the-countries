@@ -9,7 +9,7 @@ const Navbar = ({toggleTheme , theme}) => {
       <div className="navbar-container">
         <h1>Where in the world?</h1>
         <div className="mode-details"onClick={toggleTheme}>
-            {theme === "dark" ? <DarkModeOutlined /> : <LightModeOutlined />}
+            {theme === "dark" ? <LightModeOutlined /> : <DarkModeOutlined />}
             <h3>{theme === "light" ? "Dark Mode" : "Light Mode"}</h3>
         </div>
     </div>

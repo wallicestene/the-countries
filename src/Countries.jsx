@@ -3,6 +3,7 @@ import './Countries.css'; // Import the CSS file
 import {Link} from "react-router-dom"
 import SearchInput from './SearchInput';
 import Filter from './Filter';
+import { PulseLoader } from 'react-spinners';
 import { motion } from "framer-motion";
 const CountryData = () => {
 
@@ -105,7 +106,12 @@ const CountryData = () => {
            ))}
            </div> 
       ) : (
-        <p>{loading ? "" : "Loading..."}</p>
+        <p className='loader'>{loading ? "" : <PulseLoader
+        color="#398f7d"
+        margin={2}
+        size={70}
+        speedMultiplier={0.5}
+      />}</p>
       )}
     </div>
   );

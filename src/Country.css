@@ -1,10 +1,11 @@
+.country-container{
+  height: 100vh;
+}
 .country-info{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-
-
 .back{
   font-size: 20px;
   font-weight: 600;
@@ -71,7 +72,9 @@
 .ttt{
     display: flex;
     width: fit-content;
-    /* background-color: black; */
+    min-width: 200px;
+    align-items: center;
+    justify-content: center;
 }
 .borders{
     padding: 5px 15px;
@@ -88,9 +91,13 @@
 #dark .borders{
   color: var(--Very-Light-Gray);
 }
-
-
-
+.loader{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 180px;
+}
 @media (max-width: 768px) {
     .country-info {
       flex-direction: column;
@@ -125,6 +132,6 @@
   
   @media (max-width: 480px) {
     .ttt {
-      flex-direction: column;
+      flex-wrap: wrap;
     }
   }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from "react-router-dom";
 import"./Country.css"
 import { AnimatePresence, motion } from "framer-motion";
+import { PulseLoader } from 'react-spinners';
 
 const Country = () => {
 
@@ -29,10 +30,10 @@ const Country = () => {
   }, []);
 
   return (
-    <>
+    <div className='country-container'>
     {country.length > 0 ? (
 <div className="country">
-      <div className="back" onClick={() => history.push("/")}  >
+      <div className="back" onClick={() => history.go(-1)}  >
         <KeyboardBackspace/>
         <p>Back</p>
       </div>
@@ -114,10 +115,17 @@ const Country = () => {
       ))}
     </div>
     ) : (
-      <p className="loading">Loading...</p>
+      <p className="loader">
+        <PulseLoader
+  color="#398f7d"
+  margin={2}
+  size={70}
+  speedMultiplier={0.5}
+/>
+      </p>
     )}
     
-    </>
+    </div>
   );
 };
 

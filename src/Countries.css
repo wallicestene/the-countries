@@ -1,7 +1,12 @@
   .country-container{
     margin-top: 30px;
     text-decoration: none;
+    height: 100vh;
+    overflow: scroll;
     /* margin: 0 30px; */
+  }
+  .country-container::-webkit-scrollbar{
+    display: none;
   }
 .country-upper{
   display: flex;
@@ -77,6 +82,14 @@
     margin: 0;
     text-decoration: none;
   } 
+
+  .loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 180px;
+  }
   @media(min-width: 640px){
     .country-grid{
       grid-template-columns: repeat(2, 1fr);
