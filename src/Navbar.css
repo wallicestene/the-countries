@@ -9,11 +9,12 @@
 #light .navbar-container{
     background-color: var(--Very-Light-Gray);
     color: var(--Very-Dark-Blue);
+    transition: background-color 0.4s;
 }
 #dark .navbar-container{
     background-color: var(--Dark-Blue);
     color: var(--Very-Light-Gray);
-    
+    transition: background-color 0.4s;
 }
 .navbar-container.light-theme{
     background-color: var(--Very-Light-Gray);
