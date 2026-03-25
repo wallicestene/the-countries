@@ -12,7 +12,7 @@ const CountryData = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital,currencies,languages,borders,tld,cca3")
       .then(response => response.json())
       .then(data => {
         setCountries(data)
